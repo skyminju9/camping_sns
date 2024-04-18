@@ -1,30 +1,43 @@
 import React, {useEffect} from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
+
+const backgroundImage = require('../assets/images/Splash_Screen.png');
 
 const Splash = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('MainTab');
+      navigation.navigate('OnBoardingScreen');
     }, 2000);
   });
 
   return (
-    <View style={styles.SplashStyle}>
-      <Text>splash</Text>
-    </View>
+    <ImageBackground
+      source={backgroundImage}
+      resizeMode="cover"
+      style={styles.SplashStyle}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleStyle}>캠핑 투게더</Text>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   SplashStyle: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF',
   },
-  logoStyle: {
-    width: 50,
-    height: 60,
+  titleContainer: {
+    alignItems: 'center',
+    marginTop: 100,
+  },
+  titleStyle: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#573353',
+    letterSpacing: -0.3,
+    lineHeight: 40,
   },
 });
 
