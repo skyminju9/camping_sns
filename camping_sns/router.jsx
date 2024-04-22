@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Splash from './src/pages/Splash';
@@ -9,6 +9,13 @@ import SignUpScreen from './src/pages/SignUpScreen';
 import FindPasswordScreen from './src/pages/FindPasswordScreen';
 import MainTab from './src/tabs/MainTab';
 import ArticleDetailScreen from './src/pages/ArticleDetailScreen';
+import ProfileScreen from './src/pages/ProfileScreen';
+import NotificationScreen from './src/pages/NotificationScreen';
+import CommunityDetailScreen from './src/pages/CommunityDetailScreen';
+import ProfileEditScreen from './src/pages/ProfileEditScreen';
+import HomeDetailScreen from './src/pages/HomeDetailScreen';
+import CommunityScreen from './src/pages/CommunityScreen';
+import PostScreen from './src/pages/PostScreen';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +33,16 @@ const Router = () => {
         name="ArticleDetailScreen"
         component={ArticleDetailScreen}
       />
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
+      <Stack.Screen
+        name="CommunityDetailScreen"
+        component={CommunityDetailScreen}
+      />
+      <Stack.Screen name="ProfileEditScreen" component={ProfileEditScreen} />
+      <Stack.Screen name="HomeDetailScreen" component={HomeDetailScreen} />
+      <Stack.Screen name="CommunityScreen" component={CommunityScreen} />
+      <Stack.Screen name="PostScreen" component={PostScreen} />
     </Stack.Navigator>
   );
 };
