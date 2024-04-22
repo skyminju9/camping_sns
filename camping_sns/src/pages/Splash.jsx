@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
+import {View, StyleSheet, Text, ImageBackground} from 'react-native';
 
 const backgroundImage = require('../assets/images/Splash_Screen.png');
 

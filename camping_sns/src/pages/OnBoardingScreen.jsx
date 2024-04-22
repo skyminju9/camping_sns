@@ -1,41 +1,21 @@
-import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Animated,
-  Image,
-  useWindowDimensions,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import React from 'react';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Onboarding from 'react-native-onboarding-swiper';
 
 const SkipButton = ({...props}) => (
-  <TouchableOpacity style={{marginHorizontal: 8, marginLeft: 32}} {...props}>
-    <Text style={{fontSize: 17, fontWeight: 'bold', color: '#573353'}}>
-      Skip
-    </Text>
+  <TouchableOpacity style={styles.skipButton} {...props}>
+    <Text style={styles.bottomButtonText}>Skip</Text>
   </TouchableOpacity>
 );
 const NextButton = ({...props}) => (
-  <TouchableOpacity style={{marginHorizontal: 8, marginRight: 32}} {...props}>
-    <Text style={{fontSize: 17, fontWeight: 'bold', color: '#573353'}}>
-      Next
-    </Text>
+  <TouchableOpacity style={styles.rightButton} {...props}>
+    <Text style={styles.bottomButtonText}>Next</Text>
   </TouchableOpacity>
 );
 const DoneButton = ({...props}) => (
-  <TouchableOpacity style={{marginHorizontal: 8, marginRight: 32}} {...props}>
-    <Text style={{fontSize: 17, fontWeight: 'bold', color: '#573353'}}>
-      Done
-    </Text>
+  <TouchableOpacity style={styles.rightButton} {...props}>
+    <Text style={styles.bottomButtonText}>Done</Text>
   </TouchableOpacity>
 );
 
@@ -65,19 +45,8 @@ const OnBoardingScreen = ({navigation}) => {
         DotComponent={Dots}
         bottomBarColor="#FFF"
         bottomBarHighlight={false}
-        titleStyles={{
-          fontWeight: 'bold',
-          fontSize: 32,
-          color: '#573353',
-          lineHeight: 32,
-          letterSpacing: -0.3,
-        }}
-        subTitleStyles={{
-          fontWeight: '400',
-          fontSize: 17,
-          color: '#573353',
-          lineHeight: 24,
-        }}
+        titleStyles={styles.titleStyles}
+        subTitleStyles={styles.subTitleStyles}
         onSkip={() => navigation.replace('LoginScreen')}
         onDone={() => navigation.navigate('LoginScreen')}
         pages={[
@@ -137,10 +106,25 @@ const OnBoardingScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   onBoardSection: {
     width: wp(100),
-    // height: hp(100),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF',
+  },
+  bottomButtonText: {fontSize: 17, fontWeight: 'bold', color: '#573353'},
+  skipButton: {marginHorizontal: 8, marginLeft: 32},
+  rightButton: {marginHorizontal: 8, marginRight: 32},
+  titleStyles: {
+    fontWeight: 'bold',
+    fontSize: 32,
+    color: '#573353',
+    lineHeight: 32,
+    letterSpacing: -0.3,
+  },
+  subTitleStyles: {
+    fontWeight: '400',
+    fontSize: 17,
+    color: '#573353',
+    lineHeight: 24,
   },
 });
 
