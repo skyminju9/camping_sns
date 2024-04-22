@@ -4,15 +4,14 @@ import {
   Text,
   SafeAreaView,
   StyleSheet,
-  TouchableOpacity,
   Image,
-  ImageBackground,
   useWindowDimensions,
+  ScrollView,
 } from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import CustomHeader from '../components/CustomHeader';
 
 const backIcon = require('../assets/icons/header/back.png');
-const bookmarkIcon = require('../assets/icons/header/bookmark_circle.png');
+const bookmarkIcon = require('../assets/icons/header/bookmark.png');
 const dummyImage = require('../assets/images/dummyImage.png');
 
 const ArticleDetailScreen = ({route, navigation}) => {
@@ -33,18 +32,23 @@ const ArticleDetailScreen = ({route, navigation}) => {
 
   return (
     <SafeAreaView style={styles.articleDetail}>
-      <View style={styles.articleDetailHeader}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={backIcon} style={styles.backIconStyle} />
-        </TouchableOpacity>
-        <Text style={styles.headerText}>아티클 상세</Text>
-        <TouchableOpacity>
-          <Image source={bookmarkIcon} style={styles.bookmarkIconStyle} />
-        </TouchableOpacity>
-      </View>
+      <CustomHeader
+        leftIcon={backIcon}
+        rightIcon={bookmarkIcon}
+        text={'아티클 상세'}
+        leftPress={() => navigation.goBack()}
+      />
       <View style={styles.articleSection}>
         <View style={styles.articleImageSection}>
-          <Image source={dummyImage} resizeMode="cover" />
+          {article.articleImages ? (
+            <Image
+              source={dummyImage}
+              // source={require(`@${article.articleImages[0].imgPath}`)}
+              resizeMode="cover"
+            />
+          ) : (
+            <Image source={dummyImage} resizeMode="cover" />
+          )}
         </View>
         <ScrollView
           showsVerticalScrollIndicator={false}
