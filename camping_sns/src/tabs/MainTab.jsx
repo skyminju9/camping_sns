@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../pages/HomeScreen';
 import ArticlesScreen from '../pages/ArticlesScreen';
@@ -61,6 +61,7 @@ const MainTab = () => {
         name="Home"
         component={HomeScreen}
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
               <Image
@@ -76,6 +77,7 @@ const MainTab = () => {
         name="Article"
         component={ArticlesScreen}
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
               <Image
@@ -91,6 +93,7 @@ const MainTab = () => {
         name="Post"
         component={PostScreen}
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({focused}) => (
             <Image
               source={plusIcon}
@@ -108,6 +111,7 @@ const MainTab = () => {
         name="Community"
         component={CommunityScreen}
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
               <Image
@@ -123,6 +127,7 @@ const MainTab = () => {
         name="Setting"
         component={SettingScreen}
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
               <Image

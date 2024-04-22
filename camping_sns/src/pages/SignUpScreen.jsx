@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import Ract, {useState} from 'react';
 import {
   View,
   Text,
@@ -31,7 +31,6 @@ const SignUpScreen = ({navigation}) => {
     navigation.navigate('LoginScreen');
   };
 
-  let formData;
   const hanldeSubmit = () => {
     fetch('http://13.209.27.220:8080/accounts', {
       method: 'POST',
@@ -60,7 +59,7 @@ const SignUpScreen = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={[styles.flex, {backgroundColor: '#FFF3E9'}]}>
+    <SafeAreaView style={styles.background}>
       <View style={styles.Wrapper}>
         <Image source={signUpImage} style={styles.backgroundImage} />
         <Text style={styles.titleStyle}>회원가입</Text>
@@ -141,8 +140,8 @@ const SignUpScreen = ({navigation}) => {
             unFillColor="#FFF"
             text="자동 로그인"
             textStyle={styles.checkboxText}
-            iconStyle={{borderRadius: 6}}
-            innerIconStyle={{borderWidth: 1, borderRadius: 6}}
+            iconStyle={styles.iconStyle}
+            innerIconStyle={styles.innerIconStyle}
             onPress={isChecked => {
               console.log(isChecked);
             }}
@@ -153,8 +152,8 @@ const SignUpScreen = ({navigation}) => {
             unFillColor="#FFF"
             text="약관 동의"
             textStyle={styles.checkboxText}
-            iconStyle={{borderRadius: 6}}
-            innerIconStyle={{borderWidth: 1, borderRadius: 6}}
+            iconStyle={styles.iconStyle}
+            innerIconStyle={styles.innerIconStyle}
             onPress={isChecked => {
               console.log(isChecked);
             }}
@@ -177,8 +176,9 @@ const SignUpScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  flex: {
+  background: {
     flex: 1,
+    backgroundColor: '#FFF3E9',
   },
   center: {
     alignItems: 'center',
@@ -255,6 +255,8 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     letterSpacing: -0.3,
   },
+  iconStyle: {borderRadius: 6},
+  innerIconStyle: {borderWidth: 1, borderRadius: 6},
 });
 
 export default SignUpScreen;
