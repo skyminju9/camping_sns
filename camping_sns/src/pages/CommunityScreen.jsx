@@ -10,7 +10,7 @@ const CommunityScreen = ({navigation}) => {
   const [postlist, setPostlist] = useState();
 
   const renderCommunityPosts = () => {
-    fetch('http://13.209.27.220:8080/community?page=0&pageSize=10')
+    fetch('http://13.209.27.220:8080/community?page=0&pageSize=30')
       .then(response => response.json())
       .then(data => {
         console.log('data:', data);

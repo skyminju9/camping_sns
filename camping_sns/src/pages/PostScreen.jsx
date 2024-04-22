@@ -31,7 +31,7 @@ const PostScreen = ({navigation}) => {
         res.json();
         if (res.ok) {
           console.log('게시글 작성 성공');
-          navigation.navigate('CommunityScreen');
+          navigation.goBack();
         }
       })
       .catch(error => console.error(error));
